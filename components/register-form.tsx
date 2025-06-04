@@ -123,6 +123,14 @@ export function RegisterForm({
                 <Button type="submit" className="w-full cursor-pointer">
                   Sign up
                 </Button>
+                {error && (
+                  <p
+                    className="text-muted-foreground text-sm text-center"
+                    style={{ color: "red" }}
+                  >
+                    {error}
+                  </p>
+                )}
                 {/* <Button variant="outline" className="w-full">
                   Login with Google
                 </Button> */}
@@ -134,7 +142,6 @@ export function RegisterForm({
                 Login
               </a>
             </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
           </form>
         </CardContent>
       </Card>

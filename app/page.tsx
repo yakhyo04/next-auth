@@ -1,7 +1,7 @@
 // app/page.tsx
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { auth } from "@/server/auth";
 
 // Dashboard
 import { AppSidebar } from "@/components/app-sidebar";
@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/sidebar";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(auth);
 
   if (!session) {
     redirect("/login");
