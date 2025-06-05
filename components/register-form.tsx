@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
 
 export function RegisterForm({
   className,
@@ -152,9 +153,9 @@ export function RegisterForm({
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}
-              <a href="/login" className="underline underline-offset-4">
+              <Link href="/login" className="underline underline-offset-4">
                 Login
-              </a>
+              </Link>
             </div>
           </form>
         </CardContent>

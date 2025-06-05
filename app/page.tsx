@@ -49,6 +49,16 @@ export default async function Home() {
                 <BreadcrumbItem>
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>
+                    You are{" "}
+                    <span className="text-red-500 uppercase">
+                      {session?.user?.role}
+                    </span>{" "}
+                    !
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
