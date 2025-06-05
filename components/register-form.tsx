@@ -26,9 +26,23 @@ export function RegisterForm({
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  function isValidPassword(password: string) {
+    const minLength = 6;
+    const regex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/;
+    return password.length >= minLength && regex.test(password);
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+
+    if (!isValidPassword(password)) {
+      setError(
+        "Password must be at least 6 characters, contain an uppercase letter, a number, and a symbol."
+      );
+      return;
+    }
 
     const res = await fetch("/api/register", {
       method: "POST",

@@ -6,9 +6,9 @@ export async function POST(req: Request) {
   try {
     const { email, password, name } = await req.json();
 
-    if (!email || !password) {
+    if (!email || !password || !name) {
       return NextResponse.json(
-        { message: "Missing email or password" },
+        { message: "Missing name, email or password" },
         { status: 400 }
       );
     }
